@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.home{
+  @apply bg-slate-300 h-screen relative flex items-center justify-center
+}
+.sidebar{
+  @apply w-1/6 h-screen absolute left-0 bg-indigo-400 p-10 backdrop-blur-lg
+
+}
+.sidebar ul{
+  @apply list-none mt-10
+}
+.sidebar li{
+  @apply mb-10 p-2 text-white font-mono font-bold cursor-pointer  hover:text-indigo-700;
+  border-bottom: 2px solid white;
+}
+.home-title{
+  @apply text-indigo-400 text-[50px] font-mono ;
+  text-shadow: 0 0 12px  rgb(37, 30, 129);
+}
