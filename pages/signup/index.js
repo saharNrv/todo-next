@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function signUp() {
   return (
-    <div className='signup'>
+    <div className='form-container'>
       <div className='form-wrap'>
         <h1 className='form-title'>SignUp Form</h1>
         <form>
