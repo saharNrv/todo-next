@@ -1,6 +1,6 @@
 import { sign } from "jsonwebtoken"
 
-const { hash } = require("bcryptjs")
+const { hash, compare } = require("bcryptjs")
 
  const hashPassword = async (password) => {
 
@@ -16,4 +16,10 @@ const { hash } = require("bcryptjs")
     return token
  }
 
- export {hashPassword, generateToken}
+ const veryfirePassword = async (password, hashedPassword) =>{
+   const isValid = await compare(password, hashedPassword)
+   return isValid
+
+ }
+
+ export {hashPassword, generateToken, veryfirePassword}
