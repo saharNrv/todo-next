@@ -7,7 +7,7 @@ const { default: userModel } = require("@/models/User");
 const handler = async (req, res) => {
 
 
-    if (req.methode !== 'POST') {
+    if (req.method !== 'POST') {
         return res.status(421).json({ message: ' Misdirected Request' });
     }
 
