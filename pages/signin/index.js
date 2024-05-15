@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 export default function signIn() {
 
+  const route = useRouter()
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +17,16 @@ export default function signIn() {
     })
 
     console.log('RES :>> ', res);
+    if (res.status === 200) {
+
+      route.push('/todos')
+    } else if (res.status === 404) {
+      alert("User Not Found :))");
+    } else if (res.status === 422) {
+      alert("username or password is not correct :((");
+    } else if (res.status === 500) {
+      alert("...");
+    }
   }
   return (
     <div className='form-container'>
