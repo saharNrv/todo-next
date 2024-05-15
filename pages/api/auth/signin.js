@@ -1,6 +1,7 @@
 const { default: connectToDB } = require("@/configs/db")
 const { default: userModel } = require("@/models/User")
 const { veryfirePassword, generateToken } = require("@/utils/auth")
+import { serialize } from "cookie"
 
 const handler = async (req, res) => {
 
@@ -13,18 +14,19 @@ const handler = async (req, res) => {
         const { identifier, password } = req.body
 
         if (!identifier.trim() || !password.trim()) {
-            return res.status(400).json({ message: 'All fields are required' })
+            return res.status(422).json({ message: 'All fields are required' })
         }
 
 
         const user = await userModel.findOne({
             $or: [{ username: identifier }, { email: identifier }]
         })
+        console.log(user);
         if (!user) {
             return res.status(404).json({ message: "User not found !!" });
         }
 
-        const validPassword = veryfirePassword(password, user.password)
+        const validPassword =await veryfirePassword(password, user.password)
         if (!validPassword) {
             return res
                 .status(422)
@@ -46,7 +48,10 @@ const handler = async (req, res) => {
 
 
     } catch (err) {
+        console.log(err);
         return res.status(500).json({ message: err.message })
     }
 
 }
+
+export default handler

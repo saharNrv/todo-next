@@ -24,7 +24,7 @@ export default function signUp() {
         password
       })
     })
-    console.log('RES :>> ', res);
+   
     if(res.status === 201){
       setName('')
       setUsername('')
