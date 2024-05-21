@@ -1,7 +1,8 @@
+import connectToDB from "@/configs/db";
 import { generateToken, hashPassword } from "@/utils/auth";
 import { serialize } from "cookie";
 
-const { default: connectToDB } = require("@/configs/db");
+// const { default: connectToDB } = require("@/configs/db");
 const { default: userModel } = require("@/models/User");
 
 const handler = async (req, res) => {
@@ -53,7 +54,7 @@ const handler = async (req, res) => {
             "Set-Cookie",
             serialize(
                 'token',
-                JSON.stringify(token),
+                // JSON.stringify(token),
                 token, {
                 httpOnly: true,
                 path: '/',
@@ -63,7 +64,7 @@ const handler = async (req, res) => {
         ).status(201).json({ message: 'User Created Successfully :))' })
 
     } catch (err) {
-        return res.status(500).json({ message: 'Server internally error' });
+        return res.status(500).json({ message: 'Server internally error', err });
     }
 
 }

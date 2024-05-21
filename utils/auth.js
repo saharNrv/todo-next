@@ -11,7 +11,7 @@ const hashPassword = async (password) => {
 
 const generateToken = (data) => {
    const token = sign({ ...data }, process.env.privateKey, {
-      expiresIn: '24'
+      expiresIn: 60 * 60 * 24
    })
    return token
 }

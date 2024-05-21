@@ -22,7 +22,8 @@ console.log('token me',token);
         }
 
         const user = await userModel.findOne({
-            email: veryfireToken.email
+            email: tokenPayload.email
+
         }, "name  role")
         console.log('user me', user);
 

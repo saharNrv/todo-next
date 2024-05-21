@@ -37,7 +37,6 @@ const handler = async (req, res) => {
         return res
             .setHeader(
                 "Set-Cookie",
-                JSON.stringify(token),
                 serialize("token", token, {
                     httpOnly: true,
                     path: "/",
