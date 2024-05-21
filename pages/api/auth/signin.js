@@ -21,7 +21,7 @@ const handler = async (req, res) => {
         const user = await userModel.findOne({
             $or: [{ username: identifier }, { email: identifier }]
         })
-        console.log(user);
+      
         if (!user) {
             return res.status(404).json({ message: "User not found !!" });
         }
@@ -37,6 +37,7 @@ const handler = async (req, res) => {
         return res
             .setHeader(
                 "Set-Cookie",
+                JSON.stringify(token),
                 serialize("token", token, {
                     httpOnly: true,
                     path: "/",

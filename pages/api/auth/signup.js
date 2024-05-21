@@ -53,6 +53,7 @@ const handler = async (req, res) => {
             "Set-Cookie",
             serialize(
                 'token',
+                JSON.stringify(token),
                 token, {
                 httpOnly: true,
                 path: '/',
