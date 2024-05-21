@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+a{
+  color: #fff;
+  text-decoration: none;
+}
 .home {
   @apply bg-slate-300 h-screen relative flex items-center justify-center;
 }

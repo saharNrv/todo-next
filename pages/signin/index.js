@@ -19,7 +19,7 @@ export default function signIn() {
     console.log('RES :>> ', res);
     if (res.status === 200) {
 
-      route.push('/todos')
+      route.push('/')
     } else if (res.status === 404) {
       alert("User Not Found :))");
     } else if (res.status === 422) {
