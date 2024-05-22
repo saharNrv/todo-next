@@ -263,13 +263,17 @@ a{
   @apply bg-red-500 w-1/4 relative mb-10;
   display: none;
 }
-.todo-form input {
+.todo-form-show{
+  @apply bg-red-500 w-1/4 relative mb-10;
+  display: block;
+}
+.todo-form ,.todo-form-show input {
   width: 100%;
   padding: 10px;
   border: 2px solid red;
   outline: none;
 }
-.todo-form button {
+.todo-form ,.todo-form-show button {
   position: absolute;
   padding: 10px;
   background: red;

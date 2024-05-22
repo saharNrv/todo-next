@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function todos() {
+
+  const [isShowInput, setIsShowInput] =useState(false)
+
+  const showInput = ()=>{
+    setIsShowInput(true)
+  }
+
   return (
     <div className='todo-container'>
-      <div className='todo-form'>
+      <div className={isShowInput ? 'todo-form-show':'todo-form'}>
         <form>
           <input type="text" placeholder='enter todo...' />
           <button>ADD</button>
@@ -15,7 +22,7 @@ export default function todos() {
           <h2>sahar</h2>
         </div>
         <div className='btn-wrap'>
-          <span>+</span>
+          <span onClick={showInput}>+</span>
           <button>LogOut</button>
         </div>
       </div>
