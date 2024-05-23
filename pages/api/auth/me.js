@@ -8,7 +8,7 @@ const handler = async (req, res) => {
     try {
         const { token } = req.cookies
         
-console.log('token me',token);
+
 
         if (!token) {
             return res.status(401).json({ message: 'You are not login ccc!' })
@@ -25,7 +25,7 @@ console.log('token me',token);
             email: tokenPayload.email
 
         }, "name  role")
-        console.log('user me', user);
+      
 
         return res.status(200).json({ data: user });
 

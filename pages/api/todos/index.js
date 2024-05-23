@@ -28,9 +28,10 @@ const handler = async (req, res) => {
             user: user._id
         })
         return res.json(todos)
-    } else if (req.methode === 'POST') {
+    } if (req.methode === 'POST') {
 
         const { title, isCompleted } = req.body
+
         const newTodo = {
             title,
             isCompleted,
@@ -41,9 +42,9 @@ const handler = async (req, res) => {
 
         return res.status(201).json({ message: "Todo Created Successfully :))" });
 
-    } else {
-        return false
     }
+    return false
+
 }
 
 export default handler
