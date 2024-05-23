@@ -22,13 +22,13 @@ const handler = async (req, res) => {
         email: tokenPayload.email
     })
 
-    if (req.methode === 'GET') {
+    if (req.method === 'GET') {
 
         const todos = await todoModel.find({
             user: user._id
         })
         return res.json(todos)
-    } if (req.methode === 'POST') {
+    } else if (req.method === 'POST') {
 
         const { title, isCompleted } = req.body
 
@@ -41,9 +41,13 @@ const handler = async (req, res) => {
         await todoModel.create(newTodo)
 
         return res.status(201).json({ message: "Todo Created Successfully :))" });
+        
+    }else{
+        
+      
+        return res.status(400).json({ message: "err" });
 
     }
-    return false
 
 }
 
